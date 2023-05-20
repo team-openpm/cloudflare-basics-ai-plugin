@@ -12,8 +12,8 @@ export interface OpenApiPath {
   tags?: string[]
   summary: string
   parameters?: ParameterObject
-  requestBody: OpenApiZodAny
-  responseBody: OpenApiZodAny
+  requestSchema: OpenApiZodAny
+  responseSchema: OpenApiZodAny
 }
 
 export interface OpenApiOptions {
@@ -35,8 +35,8 @@ export function generateOpenApi(options: OpenApiOptions): OpenAPIObject {
       const { path: pathString, method } = path
       const pathObject = paths[pathString] || {}
       const methodObject = pathObject[method] || {}
-      const requestBody = generateBaseSchema(path.requestBody)
-      const responseBody = generateBaseSchema(path.responseBody)
+      const requestBody = generateBaseSchema(path.requestSchema)
+      const responseBody = generateBaseSchema(path.responseSchema)
 
       const operationId =
         path.operationId ?? `${method}_${pathString.replace(/\//g, '_')}')}`
