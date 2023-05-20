@@ -75,6 +75,16 @@ export default {
       contactEmail: 'support@reflect.app',
       legalInfoUrl: 'https://reflect.app/terms',
       logoUrl: 'https://logo.clearbit.com/reflect.app',
+      auth: {
+        type: 'oauth',
+        // OAuth authorization url
+        clientUrl: 'https://reflect.app/oauth',
+        // Get token url
+        authorizationUrl: 'https://reflect.app/api/oauth/token',
+        scope: 'graph:read',
+        // Provide a dummy value until OpenAI gives you the real one
+        openAiVerificationToken: 'DUMMY_VALUE',
+      },
     });
 
     return router.handle(request, env, ctx) ?? new Response('Not Found', { status: 404 });

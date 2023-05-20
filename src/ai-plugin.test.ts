@@ -9,7 +9,7 @@ describe('ai-plugin', () => {
         clientUrl: 'https://example.com/oauth/authorize',
         scope: 'read write',
         authorizationUrl: 'https://example.com/oauth/token',
-        openaiVerificationToken: '123',
+        openAiVerificationToken: '123',
       },
       humanName: 'Reflect Notes',
       modelName: 'reflect-notes',

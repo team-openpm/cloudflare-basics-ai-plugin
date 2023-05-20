@@ -38,6 +38,7 @@ export default {
 
     router.post('/notes', route)
 
+    // Adds GET /openapi.json
     addOpenApiRoute(router, {
       title: 'Reflect Notes',
       description:
@@ -54,6 +55,7 @@ export default {
       ],
     })
 
+    // Adds GET /.well-known/ai-plugin.json
     addAiPluginRoute(router, {
       humanName: 'Reflect Notes',
       modelName: 'reflect_notes',

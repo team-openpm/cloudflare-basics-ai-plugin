@@ -88,7 +88,7 @@ interface AiPluginOptionsAuthOAuth {
   scope: string
   // OAuth access token url
   authorizationUrl: string
-  openaiVerificationToken: string
+  openAiVerificationToken: string
 }
 
 interface AiPluginOptionsAuthServiceHttp {

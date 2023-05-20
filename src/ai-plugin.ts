@@ -13,7 +13,7 @@ export function buildAiPlugin(options: AiPluginOptions): AiPlugin {
             authorization_url: options.auth.authorizationUrl,
             authorization_content_type: 'application/json',
             verification_tokens: {
-              openai: options.auth.openaiVerificationToken,
+              openai: options.auth.openAiVerificationToken,
             },
           }
         : options.auth.type === 'service_http'
