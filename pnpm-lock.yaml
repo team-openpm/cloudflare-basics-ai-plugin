@@ -5,8 +5,8 @@ dependencies:
     specifier: ^1.13.0
     version: 1.13.0(openapi3-ts@4.1.2)(zod@3.21.4)
   cloudflare-basics:
-    specifier: ^0.0.3
-    version: 0.0.3
+    specifier: ^0.0.5
+    version: 0.0.5
   openapi3-ts:
     specifier: ^4.1.2
     version: 4.1.2
@@ -908,8 +908,8 @@ packages:
       escape-string-regexp: 1.0.5
     dev: true
 
-  /cloudflare-basics@0.0.3:
-    resolution: {integrity: sha512-9zrY+MiJLn81Oq/ht2uNnPeLrsjvHJijC8kF9rYlVwVLqbCljgxiLFTtCJO1IVxrq+tr53Xbsn4VomZhw9OW4A==}
+  /cloudflare-basics@0.0.5:
+    resolution: {integrity: sha512-A8gIyFWmc5/UqGiRLrwwtLlkmQXlnVlkQCnboXmF2e4oEplWrAbIrAEDfSNU3D/loYZnt2zK+MxBdpf6CflbmA==}
     dependencies:
       zod: 3.21.4
     dev: false

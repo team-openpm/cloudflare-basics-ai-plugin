@@ -1,7 +1,7 @@
 {
   "name": "cloudflare-basics-ai-plugin",
   "type": "module",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "packageManager": "pnpm@8.5.1",
   "description": "",
   "author": "Alex MaccCaw <alex@alexmaccaw.com>",
@@ -65,7 +65,7 @@
   },
   "dependencies": {
     "@anatine/zod-openapi": "^1.13.0",
-    "cloudflare-basics": "^0.0.3",
+    "cloudflare-basics": "^0.0.5",
     "openapi3-ts": "^4.1.2",
     "zod": "^3.21.4"
   }
