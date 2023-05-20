@@ -1,0 +1,29 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ai-plugin > should generate an ai-plugin spec 1`] = `
+{
+  "api": {
+    "has_user_authentication": false,
+    "type": "openapi",
+    "url": "https://example.com/openapi.json",
+  },
+  "auth": {
+    "authorization_content_type": "application/json",
+    "authorization_url": "https://example.com/oauth/token",
+    "client_url": "https://example.com/oauth/authorize",
+    "scope": "read write",
+    "type": "oauth",
+    "verification_tokens": {
+      "openai": "123",
+    },
+  },
+  "contact_email": "foo@example.com",
+  "description_for_human": "A plugin that allows the user to save notes. For example, saving a summary of their ChatGPT conversation history.",
+  "description_for_model": "Reflect notes plugin for ChatGPT. This plugin allows the user to save notes. For example, saving a summary of their ChatGPT conversation history.",
+  "legal_info_url": "https://example.com/legal",
+  "logo_url": "https://logo.clearbit.com/reflect.app",
+  "name_for_human": "Reflect Notes",
+  "name_for_model": "reflect-notes",
+  "schema_version": "v1",
+}
+`;
