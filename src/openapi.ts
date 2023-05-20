@@ -1,27 +1,7 @@
-import {
-  OpenApiZodAny,
-  generateSchema as generateBaseSchema,
-} from '@anatine/zod-openapi'
-import { RequestMethod, Router, json } from 'cloudflare-basics'
-import { OpenAPIObject, ParameterObject, PathsObject } from 'openapi3-ts/oas31'
-
-export interface OpenApiPath {
-  path: string
-  method: RequestMethod
-  operationId?: string
-  tags?: string[]
-  summary: string
-  parameters?: ParameterObject
-  requestSchema: OpenApiZodAny
-  responseSchema: OpenApiZodAny
-}
-
-export interface OpenApiOptions {
-  title: string
-  description: string
-  version: string
-  paths: OpenApiPath[]
-}
+import { generateSchema as generateBaseSchema } from '@anatine/zod-openapi'
+import { Router, json } from 'cloudflare-basics'
+import { OpenAPIObject, PathsObject } from 'openapi3-ts/oas31'
+import { OpenApiOptions } from './types'
 
 export function generateOpenApi(options: OpenApiOptions): OpenAPIObject {
   return {

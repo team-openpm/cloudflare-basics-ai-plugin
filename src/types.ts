@@ -26,6 +26,10 @@
 //   }
 // }
 
+import { OpenApiZodAny } from '@anatine/zod-openapi'
+import { RequestMethod } from 'cloudflare-basics'
+import { ParameterObject } from 'openapi3-ts/oas31'
+
 interface AiPluginAuthOAuth {
   type: 'oauth'
   client_url: string
@@ -120,4 +124,24 @@ export interface AiPluginOptions {
     | AiPluginOptionsAuthOAuth
     | AiPluginOptionsAuthServiceHttp
     | AiPluginOptionsAuthUserHttp
+}
+
+// openapi
+
+export interface OpenApiPath {
+  path: string
+  method: RequestMethod
+  operationId?: string
+  tags?: string[]
+  summary: string
+  parameters?: ParameterObject
+  requestSchema: OpenApiZodAny
+  responseSchema: OpenApiZodAny
+}
+
+export interface OpenApiOptions {
+  title: string
+  description: string
+  version: string
+  paths: OpenApiPath[]
 }
