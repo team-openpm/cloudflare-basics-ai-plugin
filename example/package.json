@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "cloudflare-basics": "^0.0.5",
-    "cloudflare-basics-ai-plugin": "^0.0.5",
+    "cloudflare-basics-ai-plugin": "^0.0.9",
     "zod": "^3.21.4"
   }
 }

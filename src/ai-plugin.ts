@@ -58,9 +58,10 @@ export function AiPluginRoute<Env>(options: Omit<AiPluginOptions, 'apiUrl'>) {
   }
 }
 
-export function addPluginRoute<Env>(
+export function addAiPluginRoute<Env>(
   router: Router<Env>,
-  options: Omit<AiPluginOptions, 'apiUrl'>
+  options: Omit<AiPluginOptions, 'apiUrl'>,
+  path = '/.well-known/ai-plugin.json'
 ) {
-  router.get('/.well-known/ai-plugin.json', AiPluginRoute(options))
+  router.get(path, AiPluginRoute(options))
 }

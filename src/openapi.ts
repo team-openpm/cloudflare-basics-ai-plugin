@@ -83,7 +83,8 @@ export function OpenApiRoute(options: OpenApiOptions) {
 
 export function addOpenApiRoute<Env>(
   router: Router<Env>,
-  options: OpenApiOptions
+  options: OpenApiOptions,
+  path = '/openapi.json'
 ) {
-  router.get('/openapi.json', OpenApiRoute(options))
+  router.get(path, OpenApiRoute(options))
 }
