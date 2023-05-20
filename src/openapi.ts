@@ -2,7 +2,7 @@ import {
   OpenApiZodAny,
   generateSchema as generateBaseSchema,
 } from '@anatine/zod-openapi'
-import { RequestMethod, json } from 'cloudflare-basics'
+import { RequestMethod, Router, json } from 'cloudflare-basics'
 import { OpenAPIObject, ParameterObject, PathsObject } from 'openapi3-ts/oas31'
 
 export interface OpenApiPath {
@@ -79,4 +79,11 @@ export function OpenApiRoute(options: OpenApiOptions) {
   return async () => {
     return json(generateOpenApi(options))
   }
+}
+
+export function addOpenApiRoute<Env>(
+  router: Router<Env>,
+  options: OpenApiOptions
+) {
+  router.get('/openapi.json', OpenApiRoute(options))
 }

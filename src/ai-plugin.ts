@@ -1,4 +1,4 @@
-import { RouteOptions, json } from 'cloudflare-basics'
+import { RouteOptions, Router, json } from 'cloudflare-basics'
 import { AiPluginOptions, AiPlugin } from './types'
 
 export function buildAiPlugin(options: AiPluginOptions): AiPlugin {
@@ -56,4 +56,11 @@ export function AiPluginRoute<Env>(options: Omit<AiPluginOptions, 'apiUrl'>) {
 
     return json(buildAiPlugin({ ...options, apiUrl }))
   }
+}
+
+export function addPluginRoute<Env>(
+  router: Router<Env>,
+  options: Omit<AiPluginOptions, 'apiUrl'>
+) {
+  router.get('/.well-known/ai-plugin.json', AiPluginRoute(options))
 }
