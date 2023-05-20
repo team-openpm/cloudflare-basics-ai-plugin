@@ -14,10 +14,10 @@ describe('generateOpenApi', () => {
           path: '/notes',
           method: 'post',
           summary: 'Create a note',
-          requestBody: z.object({
+          requestSchema: z.object({
             text: z.string(),
           }),
-          responseBody: z.object({
+          responseSchema: z.object({
             id: z.string(),
             text: z.string(),
           }),
