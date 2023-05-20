@@ -99,13 +99,13 @@ interface AiPluginOptionsAuthUserHttp {
 
 export interface AiPluginOptions {
   // Human readable plugin name (e.g. "Reflect Notes")
-  nameForHuman: string
+  humanName: string
   // Model name (e.g. "reflect_notes")
-  nameForModel: string
+  modelName: string
   // Human readable plugin description
-  descriptionForHuman: string
+  humanDescription: string
   // Model description
-  descriptionForModel: string
+  modelDescription: string
   // Contact email
   contactEmail: string
   // Legal terms of service url

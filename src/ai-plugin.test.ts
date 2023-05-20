@@ -11,11 +11,11 @@ describe('ai-plugin', () => {
         authorizationUrl: 'https://example.com/oauth/token',
         openaiVerificationToken: '123',
       },
-      nameForHuman: 'Reflect Notes',
-      nameForModel: 'reflect-notes',
-      descriptionForHuman:
+      humanName: 'Reflect Notes',
+      modelName: 'reflect-notes',
+      humanDescription:
         'A plugin that allows the user to save notes. For example, saving a summary of their ChatGPT conversation history.',
-      descriptionForModel:
+      modelDescription:
         'Reflect notes plugin for ChatGPT. This plugin allows the user to save notes. For example, saving a summary of their ChatGPT conversation history.',
       contactEmail: 'foo@example.com',
       legalInfoUrl: 'https://example.com/legal',

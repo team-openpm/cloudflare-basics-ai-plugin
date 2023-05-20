@@ -60,11 +60,11 @@ export default {
     router.get(
       '/.well-known/ai-plugin.json',
       AiPluginRoute({
-        nameForHuman: 'Reflect Notes',
-        nameForModel: 'reflect_notes',
-        descriptionForHuman:
+        humanName: 'Reflect Notes',
+        modelName: 'reflect_notes',
+        humanDescription:
           'A plugin that allows the user to save notes. For example, saving a summary of their ChatGPT conversation history.',
-        descriptionForModel:
+        modelDescription:
           'Reflect notes plugin for ChatGPT. This plugin allows the user to save notes. For example, saving a summary of their ChatGPT conversation history.',
         contactEmail: 'support@reflect.app',
         legalInfoUrl: 'https://reflect.app/terms',
