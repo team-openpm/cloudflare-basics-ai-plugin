@@ -7,53 +7,75 @@ Uses [cloudflare-basics](https://github.com/maccman/cloudflare-basics).
 ## Usage
 
 ```ts
+import { Router, json, withZod } from 'cloudflare-basics'
 import { AiPluginRoute, OpenApiRoute } from 'cloudflare-basics-ai-plugin'
+import { z } from 'zod'
 
-const router = new Router()
+export default {
+  async fetch(
+    request: Request,
+    env: Env,
+    ctx: ExecutionContext
+  ): Promise<Response> {
+    const router = new Router<Env>()
 
-router.get(
-  '/openapi.json',
-  OpenApiRoute({
-    title: 'Reflect Notes',
-    description:
-      'A plugin that allows the user to save notes. For example, saving a summary of their ChatGPT conversation history.',
-    version: '1.0.0',
-    paths: [
-      {
-        path: '/notes',
-        method: 'post',
-        summary: 'Create a note',
-        requestBody: z.object({
-          text: z.string(),
-        }),
-        responseBody: z.object({
-          id: z.string(),
-          text: z.string(),
-        }),
-      },
-    ],
-  })
-)
+    const requestSchema = z.object({
+      markdown: z.string(),
+    })
 
-router.get(
-  '/.well-known/ai-plugin',
-  AiPluginRoute({
-    auth: {
-      type: 'oauth',
-      clientUrl: 'https://example.com/oauth/authorize',
-      authorizationUrl: 'https://example.com/oauth/token',
-      scope: 'read write',
-      openaiVerificationToken: '123',
-    },
-    nameForHuman: 'Reflect Notes',
-    nameForModel: 'reflect_notes',
-    descriptionForHuman:
-      'A plugin that allows the user to save notes. For example, saving a summary of their ChatGPT conversation history.',
-    descriptionForModel:
-      'Reflect notes plugin for ChatGPT. This plugin allows the user to save notes. For example, saving a summary of their ChatGPT conversation history.',
-    contactEmail: 'support@reflect.app',
-    legalInfoUrl: 'https://reflect.app/terms',
-    logoUrl: 'https://reflect.app/site/icons/512x512-rounded.png',
-  })
-)
+    const responseSchema = z.object({
+      success: z.boolean(),
+    })
+
+    const route = withZod<Env, z.infer<typeof requestSchema>>(
+      requestSchema,
+      async (options) => {
+        console.log('Creating note', options.data.markdown)
+
+        return json({ success: true })
+      }
+    )
+
+    router.post('/notes', route)
+
+    router.get(
+      '/openapi.json',
+      OpenApiRoute({
+        title: 'Reflect Notes',
+        description:
+          'A plugin that allows the user to save notes. For example, saving a summary of their ChatGPT conversation history.',
+        version: '1.0.0',
+        paths: [
+          {
+            path: '/notes',
+            method: 'post',
+            summary: 'Create a note',
+            requestSchema,
+            responseSchema,
+          },
+        ],
+      })
+    )
+
+    router.get(
+      '/.well-known/ai-plugin.json',
+      AiPluginRoute({
+        nameForHuman: 'Reflect Notes',
+        nameForModel: 'reflect_notes',
+        descriptionForHuman:
+          'A plugin that allows the user to save notes. For example, saving a summary of their ChatGPT conversation history.',
+        descriptionForModel:
+          'Reflect notes plugin for ChatGPT. This plugin allows the user to save notes. For example, saving a summary of their ChatGPT conversation history.',
+        contactEmail: 'support@reflect.app',
+        legalInfoUrl: 'https://reflect.app/terms',
+        logoUrl: 'https://logo.clearbit.com/reflect.app',
+      })
+    )
+
+    return (
+      router.handle(request, env, ctx) ??
+      new Response('Not Found', { status: 404 })
+    )
+  },
+}
 ```

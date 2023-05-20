@@ -5,8 +5,8 @@ dependencies:
     specifier: ^0.0.5
     version: 0.0.5
   cloudflare-basics-ai-plugin:
-    specifier: ^0.0.4
-    version: 0.0.4
+    specifier: ^0.0.5
+    version: 0.0.5
   zod:
     specifier: ^3.21.4
     version: 3.21.4
@@ -419,18 +419,12 @@ packages:
     resolution: {integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==}
     dev: true
 
-  /cloudflare-basics-ai-plugin@0.0.4:
-    resolution: {integrity: sha512-ZJ61fj3Nx+gusU4eUnC691LDzawk0qZd+LR/IRrpsM3tmpRl8cZnM+bKpVLKRw0IKL1OQcy7Q6o5aG3I9Dr7YA==}
+  /cloudflare-basics-ai-plugin@0.0.5:
+    resolution: {integrity: sha512-0QkfEhkIEN0jJG423v7KLOqjnAHb1rUlCt5ftmnHDs7dVJ2/1doiREvQVreYLhbPIfDHWKY2mqbq3s9BP5fGsQ==}
     dependencies:
       '@anatine/zod-openapi': 1.13.0(openapi3-ts@4.1.2)(zod@3.21.4)
-      cloudflare-basics: 0.0.3
+      cloudflare-basics: 0.0.5
       openapi3-ts: 4.1.2
-      zod: 3.21.4
-    dev: false
-
-  /cloudflare-basics@0.0.3:
-    resolution: {integrity: sha512-9zrY+MiJLn81Oq/ht2uNnPeLrsjvHJijC8kF9rYlVwVLqbCljgxiLFTtCJO1IVxrq+tr53Xbsn4VomZhw9OW4A==}
-    dependencies:
       zod: 3.21.4
     dev: false
 

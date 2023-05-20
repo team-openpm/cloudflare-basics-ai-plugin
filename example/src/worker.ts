@@ -1,4 +1,4 @@
-import { RouteHandler, Router, json, withZod } from 'cloudflare-basics';
+import { Router, json, withZod } from 'cloudflare-basics';
 import { AiPluginRoute, OpenApiRoute } from 'cloudflare-basics-ai-plugin';
 import { z } from 'zod';
 
@@ -70,7 +70,7 @@ export default {
     );
 
     router.get(
-      '/.well-known/ai-plugin',
+      '/.well-known/ai-plugin.json',
       AiPluginRoute({
         nameForHuman: 'Reflect Notes',
         nameForModel: 'reflect_notes',
@@ -80,7 +80,7 @@ export default {
           'Reflect notes plugin for ChatGPT. This plugin allows the user to save notes. For example, saving a summary of their ChatGPT conversation history.',
         contactEmail: 'support@reflect.app',
         legalInfoUrl: 'https://reflect.app/terms',
-        logoUrl: 'https://reflect.app/site/icons/512x512-rounded.png',
+        logoUrl: 'https://logo.clearbit.com/reflect.app',
       })
     );
 
